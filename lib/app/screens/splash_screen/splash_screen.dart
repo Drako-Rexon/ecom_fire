@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   navigate() {
     Future.delayed(
       const Duration(milliseconds: 1500),
-      () => Get.to(() => const LoginScreen()),
+      () => Get.offAll(() => const LoginScreen()),
     );
   }
 

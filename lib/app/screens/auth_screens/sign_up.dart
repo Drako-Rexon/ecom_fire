@@ -10,8 +10,15 @@ import 'package:ecom_fire/app/widget/tex_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SigUpScreen extends StatelessWidget {
+class SigUpScreen extends StatefulWidget {
   const SigUpScreen({super.key});
+
+  @override
+  State<SigUpScreen> createState() => _SigUpScreenState();
+}
+
+class _SigUpScreenState extends State<SigUpScreen> {
+  bool? isCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +64,14 @@ class SigUpScreen extends StatelessWidget {
                     Row(
                       children: [
                         Checkbox(
-                          checkColor: redColor,
-                          value: false,
-                          onChanged: (val) {},
+                          activeColor: redColor,
+                          checkColor: whiteColor,
+                          value: isCheck,
+                          onChanged: (val) {
+                            setState(() {
+                              isCheck = val;
+                            });
+                          },
                         ),
                         sBox(10, 0),
                         Flexible(
@@ -69,7 +81,6 @@ class SigUpScreen extends StatelessWidget {
                                 TextSpan(
                                   text: "I agree to the ",
                                   style: modifiedText(
-                                    weight: FontWeight.bold,
                                     color: fontGrey,
                                   ),
                                 ),
@@ -83,7 +94,6 @@ class SigUpScreen extends StatelessWidget {
                                 TextSpan(
                                   text: " & ",
                                   style: modifiedText(
-                                    weight: FontWeight.bold,
                                     color: fontGrey,
                                   ),
                                 ),
@@ -102,7 +112,7 @@ class SigUpScreen extends StatelessWidget {
                     ),
                     ourButton(
                       title: signup,
-                      color: redColor,
+                      color: isCheck == true ? redColor : lightGrey,
                       textColor: whiteColor,
                       onPress: () {},
                     ),

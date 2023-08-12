@@ -2,6 +2,7 @@ import 'package:ecom_fire/app/constants/colors.dart';
 import 'package:ecom_fire/app/constants/lists.dart';
 import 'package:ecom_fire/app/constants/strings.dart';
 import 'package:ecom_fire/app/screens/auth_screens/sign_up.dart';
+import 'package:ecom_fire/app/screens/home_screen/home.dart';
 import 'package:ecom_fire/app/widget/appconfig.dart';
 import 'package:ecom_fire/app/widget/background_widget.dart';
 import 'package:ecom_fire/app/widget/common_widget.dart';
@@ -57,7 +58,9 @@ class LoginScreen extends StatelessWidget {
                       title: login,
                       color: redColor,
                       textColor: whiteColor,
-                      onPress: () {},
+                      onPress: () {
+                        Get.off(() => const Home());
+                      },
                     ),
                     sBox(5, 0),
                     Text(
@@ -70,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                       textColor: redColor,
                       color: lightGolden,
                       onPress: () {
-                        Get.to(() => const SigUpScreen());
+                        Get.off(() => const SigUpScreen());
                       },
                     ),
                     sBox(10, 0),
